@@ -1,5 +1,3 @@
-package a1_2101040097;
-
 import utils.TextIO;
 
 import java.util.Arrays;
@@ -7,7 +5,7 @@ import java.util.Random;
 
 /**
  * @overview A program that performs the coffee tin game on a
- *    tin of beans and display result on the standard output.
+ *    tin of beans and displays the result on the standard output.
  * The game starts with a tin of beans, which can be either blue or green.
  * Players take turns removing two beans at a time from the tin. If the two beans are the same color,
  * they are discarded and replaced with one blue bean.
@@ -38,7 +36,7 @@ public class CoffeeTinGame {
      * {@link TextIO#putf(String, Object...)}: print the tin content
      * {@link @tinGame(char[])}: perform the coffee tin game on tin
      * {@link TextIO#putf(String, Object...)}: print the tin content again
-     * if last bean is correct
+     * if the last bean is correct
      * {@link TextIO#putf(String, Object...)}: print its colour
      * else
      * {@link TextIO#putf(String, Object...)}: print an error message
@@ -94,11 +92,11 @@ public class CoffeeTinGame {
      * @requires tin is not null /\ tin.length > 0
      * @modifies tin
      * @effects <pre>
-     *   take out two beans from tin
-     *   if same colour
+     *   Take out two beans from tin
+     *   if the same colour
      *     throw both away, put one blue bean back
      *   else
-     *     put green bean back
+     *     Put the green bean back
      *   let p0 = initial number of green beans
      *   if p0 = 1
      *     result = `G'
@@ -202,10 +200,10 @@ public class CoffeeTinGame {
     /**
      * Create a constant named BeansBag that represents the bag of available beans
      *
-     * @requires create array with length at least 30
-     * BeansBag needs to be an array whose length is at least 30 which contains blue beans, green beans,
+     * @requires create an array with a length of at least 30
+     * BeansBag needs to be an array whose length is at least 30, which contains blue beans, green beans,
      * and available spaces
-     * each type should account for roughly one-third
+     * Each type should account for roughly one-third
      */
 
     private static final char[] BeansBag = new char[30];
@@ -217,7 +215,7 @@ public class CoffeeTinGame {
             BeansBag[i] = BLUE;
             BeansBag[i + numBeans] = GREEN;
         }
-        // fill the remaining available spaces with null characters accounting for roughly one-third
+        // fill the remaining available spaces with null characters, accounting for roughly one-third
         for (int i = numBeans * 2; i < BeansBag.length; i++) {
             BeansBag[i] = '-';
         }
@@ -228,7 +226,7 @@ public class CoffeeTinGame {
         return rand.nextInt(n);
     }
 
-    // take as input an array of beans and a bean type (B or G) and looks inside the array
+    // take as input an array of beans and a bean type (B or G), and look inside the array
     // find and return a randomly-selected bean that matches the bean type
     public static char getBean(char type) {
         int[] matchingIndices = new int[BeansBag.length];
@@ -259,4 +257,5 @@ public class CoffeeTinGame {
                 putIn(tin, getBean(GREEN)); // Get green beans from BeansBag
         }
     }
+
 }
